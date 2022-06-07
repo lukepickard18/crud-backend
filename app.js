@@ -17,9 +17,6 @@ import notFound from "./routes/not-found.js";
 
 import authRoute from "./middleware/auth.js";
 
-
-
-
 dotenv.config();
 
 const app = express();
