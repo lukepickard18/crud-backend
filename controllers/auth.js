@@ -1,6 +1,7 @@
 import User from "../models/users.js";
 import getTokenUserData from "../utils/getTokenUserData.js";
 import { attachCookiesToResponse } from "../utils/jwt.js";
+import jsonwebtoken from "jsonwebtoken";
 
 const register = async (req, res) => {
   try {
@@ -32,11 +33,11 @@ const login = async (req, res) => {
       return res.status(401).json({ success: false, msg: "Invalid password" });
     }
 
-    const tokenUser = getTokenUserData(user);
-    attachCookiesToResponse({ res, user: tokenUser });
+    const token = user.createJWT() /** Calling the createJWT() in Users.js */
+
     return res.status(201).json({
       success: true,
-      data: tokenUser,
+      token: token,
       msg: "User successfully logged in",
     });
   } catch (err) {

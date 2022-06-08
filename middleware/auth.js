@@ -1,18 +1,23 @@
-import { isTokenValid } from "../utils/jwt.js";
+import jwt from 'jsonwebtoken'
 
 const authRoute = async (req, res, next) => {
-  const token = req.signedCookies.token;
+  const authHeader = req.headers.authorization /** Please read this resource - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization */
 
-  if (!token) {
-    res.status(401).send({ success: false, msg: "Invalid authentication" });
+  /** Check if a bearer token is given or a token starts with bearer */
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    console.log('No token provided')
   }
 
+  /** Verify only the token */
+  const token = authHeader.split(' ')[1]
+
+  /** You have seen this before **/
   try {
-    const { userId } = isTokenValid({ token });
-    req.user = { userId: userId };
-    next();
+    const payload = jwt.verify(token, process.env.JWT_SECRET)
+    req.user = { userId: payload.userId, name: payload.name }
+    next()
   } catch (error) {
-    res.status(401).send({ success: false, msg: "Invalid authentication" });
+    console.log('Not authorized to access this route')
   }
 };
 
