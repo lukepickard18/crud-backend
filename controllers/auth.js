@@ -1,7 +1,7 @@
 import User from "../models/users.js";
 import getTokenUserData from "../utils/getTokenUserData.js";
 import { attachCookiesToResponse } from "../utils/jwt.js";
-import { jsonwebtoken } from "jsonwebtoken";
+import jwt from 'jsonwebtoken'
 
 const register = async (req, res) => {
   try {
