@@ -6,10 +6,11 @@ const departmentsSchema = new mongoose.Schema({
     required: [true, "name is required"],
     maxlength: [100, "name must be no longer than 100 characters"],
   },
-  institution: {
+  institutions: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Institution",
-  },
+    
+}],
   courses: [
     {
       type: mongoose.Schema.Types.ObjectId,

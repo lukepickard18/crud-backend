@@ -1,4 +1,4 @@
-import { eitId, mitId, itId, nursingId } from "./ids.js";
+import { opId, eitId, mitId, itId, nursingId } from "./ids.js";
 
 const institutions = [
   {
@@ -26,9 +26,11 @@ const institutions = [
     country: "New Zealand",
   },
   {
+    _id: opId,
     name: "Otago Polytechnic",
     region: "Otago",
     country: "New Zealand",
+    departments: [itId, nursingId],
   },
   {
     name: "Southern Institute of Technology",
