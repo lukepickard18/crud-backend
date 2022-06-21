@@ -27,7 +27,7 @@ const getCourse = async (req, res) => {
 };
 
 const getCourses = async (req, res) => {
-  const { limit = 10, page = 1, title, code, sort_by, order_by } = req.query;
+  const { limit = 1, page = 2, title, code, sort_by, order_by } = req.query;
 
   /**
    * Page courses

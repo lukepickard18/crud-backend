@@ -27,7 +27,7 @@ const getDepartment = async (req, res) => {
 };
 
 const getDepartments = async (req, res) => {
-  const { limit = 10, page = 1, name, sort_by, order_by } = req.query;
+  const { limit = 1, page = 2, name, sort_by, order_by } = req.query;
 
   /**
    * Page departments

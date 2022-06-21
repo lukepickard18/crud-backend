@@ -11,6 +11,16 @@ const courses = [
     },
     department: itId,
   },
+  {
+    title: "Advanced Application Development" ,
+    code: "ID607001.5",
+    additional_information: {
+      efts: 0.15,
+      points: 15,
+      fees: 750.0,
+    },
+    department: itId,
+  },
 ];
 
 export { courses };
