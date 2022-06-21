@@ -15,16 +15,19 @@ const coursesSchema = new mongoose.Schema({
     efts: {
       type: mongoose.Schema.Types.Number,
       get: (v) => v.toFixed(2),
-      required: [true, "efts is required"],
+      
+      
     },
     points: {
       type: mongoose.Schema.Types.Number,
-      required: [true, "points is required"],
+      
+      
     },
     fees: {
       type: mongoose.Schema.Types.Number,
       get: (v) => v.toFixed(2),
-      required: [true, "fees is required"],
+      
+      
     },
   },
   department: {
